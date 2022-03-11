@@ -17,10 +17,13 @@ describe( 'Modify Design System', () => {
         scrollToBottom();
         await page.click( 'div.e-getting-started__actions.e-getting-started__content--narrow > a.button.button-primary.button-hero' );
         await page.waitForSelector( '#elementor-panel-header-title', { visible: true } );
+        // check elementor page builder exists or not
         expect( await isElementExist( "#elementor-panel-header-title" ) ).toBe( true );
+        // Access to site settings
         await page.waitForSelector( '#elementor-panel-header-menu-button > i', { visible: true } );
         await page.click( '#elementor-panel-header-menu-button > i' );
         await page.waitForSelector( '.elementor-panel-menu-item.elementor-panel-menu-item-global-settings', { visible: true } );
+         // Validating design system
         await page.click( '.elementor-panel-menu-item.elementor-panel-menu-item-global-settings' );
         await page.waitForSelector( '.elementor-panel-menu-item-global-colors', { visible: true } );
         await page.click( '.elementor-panel-menu-item-global-colors' );
